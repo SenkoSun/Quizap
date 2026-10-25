@@ -3,31 +3,41 @@ const questions = [
     id: 1,
     question: "Какой метод массива добавляет элемент в конец?",
     options: ["shift()", "push()", "unshift()", "pop()"],
-    correctAnswer: 1
+    correctAnswer: 1,
+    difficulty: "easy",
+    topic: "JavaScript"
   },
   {
     id: 2,
     question: "Что вернёт typeof null в JavaScript?",
     options: ['"null"', '"object"', '"undefined"', '"number"'],
-    correctAnswer: 1
+    correctAnswer: 1,
+    difficulty: "easy",
+    topic: "JavaScript"
   },
   {
     id: 3,
     question: "Какой оператор используется для строгого сравнения?",
     options: ["==", "=", "===", "!="],
-    correctAnswer: 2
+    correctAnswer: 2,
+    difficulty: "easy",
+    topic: "JavaScript"
   },
   {
     id: 4,
     question: "Как объявить константу в JavaScript?",
     options: ["var x = 5;", "let x = 5;", "const x = 5;", "static x = 5;"],
-    correctAnswer: 2
+    correctAnswer: 2,
+    difficulty: "easy",
+    topic: "JavaScript"
   },
   {
     id: 5,
     question: "Какой метод удаляет последний элемент массива?",
     options: ["shift()", "pop()", "splice()", "slice()"],
-    correctAnswer: 1
+    correctAnswer: 1,
+    difficulty: "easy",
+    topic: "JavaScript"
   },
   {
     id: 6,
@@ -38,7 +48,9 @@ const questions = [
       "Проверяет валидность JSON",
       "Копирует объект"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    difficulty: "easy",
+    topic: "JavaScript"
   },
   {
     id: 7,
@@ -49,13 +61,17 @@ const questions = [
       "boolean (true)",
       "undefined"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    difficulty: "easy",
+    topic: "JavaScript"
   },
   {
     id: 8,
     question: "Какой метод используется для поиска элемента в массиве по условию?",
     options: ["filter()", "find()", "map()", "reduce()"],
-    correctAnswer: 1
+    correctAnswer: 1,
+    difficulty: "easy",
+    topic: "JavaScript"
   }
 ];
 
