@@ -1,10 +1,24 @@
-import './App.css';
-import JoinScreen from './components/JoinScreen';
+import "./App.css";
+import { useState } from "react";
+import JoinScreen from "./components/JoinScreen";
+import GameScreen from "./components/GameScreen";
 
 function App() {
+  const [isGameStarted, setIsGameStarted] = useState(false);
+  const [playerName, setPlayerName] = useState("");
+
   return (
     <div>
-      <JoinScreen />
+      {isGameStarted ? (
+        <GameScreen playerName={playerName} />
+      ) : (
+        <JoinScreen
+          onStart={(name) => {
+            setPlayerName(name);
+            setIsGameStarted(true);
+          }}
+        />
+      )}
     </div>
   );
 }
