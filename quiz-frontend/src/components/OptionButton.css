@@ -1,8 +1,15 @@
 .option-btn {
-  padding: 15px;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
+  width: 100%;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid black;
+  text-align: left;
+  border-radius: 10px;
+  transition: transform 0.1s;
+}
+.option-btn:active {
+  transform: scale(0.98);
 }
 .red {
   background-color: #ff7eb3;

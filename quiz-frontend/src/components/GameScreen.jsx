@@ -1,5 +1,7 @@
-import questions from "../data/questions";
 import { useState } from "react";
+import questions from "../data/questions";
+
+import "./GameScreen.css";
 import OptionButton from "./OptionButton";
 import ResultScreen from "./ResultScreen";
 
@@ -28,20 +30,23 @@ function GameScreen({ playerName, onRestart }) {
   }
 
   return (
-    <div>
+    <div className="game-container">
       <h2>Игрок: {playerName}</h2>
-      <h1>Игра началась!</h1>
-      <p>Тема: {currentQuestion.topic}</p>
-      <h2>{currentQuestion.question}</h2>
-      {currentQuestion.options.map((optionText, index) => (
-        <OptionButton
-          key={index}
-          text={optionText}
-          letter={["A", "B", "C", "D"][index]}
-          onClick={() => handleAnswerClick(index)}
-          color={colors[index]}
-        />
-      ))}
+      <div className="question-header">
+        <span className="topic-badge">{currentQuestion.topic}</span>
+        <h2 className="question-text">{currentQuestion.question}</h2>
+      </div>
+      <div className="options-grid">
+        {currentQuestion.options.map((optionText, index) => (
+          <OptionButton
+            key={index}
+            text={optionText}
+            letter={["A", "B", "C", "D"][index]}
+            onClick={() => handleAnswerClick(index)}
+            color={colors[index]}
+          />
+        ))}
+      </div>
     </div>
   );
 }

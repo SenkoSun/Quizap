@@ -1,0 +1,28 @@
+.game-container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  border: 2px solid black;
+  width: 800px;
+  max-width: 90%;
+  box-shadow: 5px 5px 0 black;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Две колонки равной ширины */
+  gap: 15px; /* Расстояние между кнопками */
+  margin-top: 20px;
+}
+
+.question-text {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.topic-badge {
+  background: #e0e0e0;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}

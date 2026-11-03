@@ -1,0 +1,71 @@
+/* Контейнер-карточка (размеры и тени как у .game-container) */
+.result-container {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  border: 2px solid black;
+  width: 800px;
+  max-width: 90%;
+  box-shadow: 5px 5px 0 black;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* Крупный заголовок */
+.result-title {
+  font-size: 32px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Имя игрока */
+.player-name {
+  font-size: 22px;
+  color: #333333;
+  margin-bottom: 25px;
+}
+
+/* Выделенный блок с результатом */
+.score-box {
+  background-color: #f4f4f4;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px auto 30px auto;
+  max-width: 400px;
+}
+
+.score-label {
+  font-size: 16px;
+  color: #555555;
+  margin: 0 0 5px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.restart-btn {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 2px solid black;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #f9f871;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.restart-btn:active {
+  transform: scale(0.98);
+}
