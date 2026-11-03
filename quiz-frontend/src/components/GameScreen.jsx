@@ -1,8 +1,9 @@
 import questions from "../data/questions";
 import { useState } from "react";
 import OptionButton from "./OptionButton";
+import ResultScreen from "./ResultScreen";
 
-function GameScreen({ playerName }) {
+function GameScreen({ playerName, onRestart }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [rightAnswer, setRightAnswer] = useState(0);
   const currentQuestion = questions[currentIndex];
@@ -10,10 +11,12 @@ function GameScreen({ playerName }) {
 
   if (currentIndex >= questions.length) {
     return (
-      <div>
-        <h1>Игрок: {playerName}!</h1>
-        <h1>Игра закончилась!</h1> <h1>Верных ответов: {rightAnswer}</h1>
-      </div>
+      <ResultScreen
+        playerName={playerName}
+        rightAnswer={rightAnswer}
+        totalQuestions={questions.length}
+        onRestart={onRestart}
+      />
     );
   }
 

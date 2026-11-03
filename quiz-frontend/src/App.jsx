@@ -10,7 +10,10 @@ function App() {
   return (
     <div>
       {isGameStarted ? (
-        <GameScreen playerName={playerName} />
+        <GameScreen
+          playerName={playerName}
+          onRestart={() => setIsGameStarted(false)}
+        />
       ) : (
         <JoinScreen
           onStart={(name) => {
