@@ -26,3 +26,27 @@
   border-radius: 5px;
   font-size: 14px;
 }
+
+.timer-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f9f871;
+  border: 2px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+
+  float: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+  font-weight: bold;
+  color: #000000;
+  transition: background-color 0.3s ease;
+}
+
+.timer-circle.danger {
+  background-color: #ff7eb3; /* Розово-красный */
+}
