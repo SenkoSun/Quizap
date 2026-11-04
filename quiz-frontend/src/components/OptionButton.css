@@ -23,3 +23,13 @@
 .blue {
   background-color: #a3c4f3;
 }
+
+.correct {
+  border: 3px solid black;
+  opacity: 1 !important;
+  color: #000000 !important;
+}
+
+.option-btn:disabled:not(.correct) {
+  opacity: 0.35;
+}
