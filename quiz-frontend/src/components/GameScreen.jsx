@@ -6,7 +6,7 @@ import "./GameScreen.css";
 import OptionButton from "./OptionButton";
 import ResultScreen from "./ResultScreen";
 
-function GameScreen({ playerName, onRestart }) {
+function GameScreen({ playerName, playerAvatar, onRestart }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [rightAnswer, setRightAnswer] = useState(0);
   const [timeLeft, setTimeLeft] = useState(15);
@@ -54,6 +54,7 @@ function GameScreen({ playerName, onRestart }) {
   return (
     <div className="game-container">
       <h2>Игрок: {playerName}</h2>
+      <h2>{playerAvatar}</h2>
       <div className="question-header">
         <div className={`timer-circle ${timeLeft <= 5 ? "danger" : ""}`}>
           {timeLeft}
