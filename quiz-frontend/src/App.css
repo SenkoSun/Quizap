@@ -1,8 +1,25 @@
 body {
-  background-color: #4b4bfa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito", sans-serif;
+  background-color: #383bf4;
+  color: white;
   min-height: 100vh;
-  font-family: sans-serif;
+}
+
+.app-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between; /* Распределяет шапку, контент и футер по краям экрана */
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Распределяет левую и правую части с равными отступами */
+  padding: 40px; /* Увеличили отступы по бокам для лучшего визуального восприятия */
+  width: 100%;
+  box-sizing: border-box;
 }
