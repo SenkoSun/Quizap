@@ -205,3 +205,141 @@
   color: #383bf4;
   text-decoration: none;
 }
+
+.features-tags {
+  display: flex;
+  flex-wrap: wrap; /* Чтобы на мобилках теги красиво переносились */
+  gap: 12px; /* Расстояние между плашками */
+  margin-top: 25px; /* Отступ сверху от главного текста */
+}
+
+.tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.15); /* Полупрозрачный белый фон */
+  padding: 6px 14px;
+  border-radius: 20px; /* Овальная форма */
+  font-size: 14px;
+  font-weight: 700; /* Жирный текст, как на дизайне */
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая незаметная рамка для объема */
+}
+
+.tag-plus {
+  color: #caff33; /* Ярко-салатовый цвет для плюса, как акцент на макете */
+  font-weight: 900;
+}
+
+/* Контейнер для всего коллажа */
+.emoji-collage-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  height: 280px; /* Увеличили с 220px до 280px, чтобы дать место сверху */
+  margin: 10px 0 30px 0; /* Уменьшили верхний отступ и добавили нижний */
+  display: flex;
+  align-items: center; /* Заменили flex-end на center, чтобы поднять персонажей */
+  justify-content: center;
+}
+
+/* Общие стили для главных эмодзи-персонажей */
+.emoji-main-character {
+  font-size: 110px; /* Делаем эмодзи очень крупными */
+  line-height: 1;
+  filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.15)); /* Объемная тень */
+  transition: transform 0.3s ease;
+  animation: float-animation 4s ease-in-out infinite;
+}
+
+/* Розовый квадрат (Левый) */
+.pink-box {
+  transform: rotate(-10deg);
+  margin-right: -15px;
+  z-index: 2;
+  animation-delay: 0s;
+}
+
+/* Желтый круг (Центральный) */
+.yellow-circle {
+  font-size: 100px; /* Центр сделаем чуть больше */
+  transform: rotate(5deg);
+  z-index: 1;
+  animation-delay: 0.5s;
+}
+
+/* Зеленый квадрат (Правый) */
+.green-box {
+  transform: rotate(15deg);
+  margin-left: -10px;
+  z-index: 2;
+  animation-delay: 1s;
+}
+
+/* Текстовое облачко (спич-бабл) слева внизу */
+.emoji-speech-bubble {
+  position: absolute;
+  left: 10px;
+  bottom: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px #000000; /* Четкая тень в стиле Neobrutalism */
+  z-index: 3;
+}
+
+/* Декоративные элементы по краям */
+.emoji-decor-star {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 28px;
+  transform: rotate(-15deg);
+}
+
+.emoji-decor-question {
+  position: absolute;
+  top: 0px;
+  right: 40px;
+  font-size: 32px;
+  transform: rotate(20deg);
+}
+
+/* Эффект легкого покачивания в воздухе */
+@keyframes float-animation {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-8px) rotate(var(--rot, 0deg));
+  }
+}
+
+/* Применяем анимацию покачивания с сохранением исходного наклона */
+.pink-box {
+  --rot: -10deg;
+}
+.yellow-circle {
+  --rot: 5deg;
+}
+.green-box {
+  --rot: 15deg;
+}
+
+.badge-promo {
+  display: inline-block;
+  background-color: #b7f85a; /* Яркий салатовый цвет */
+  color: #162ea8; /* Черный текст */
+  font-size: 11px;
+  font-weight: 900; /* Максимально жирный шрифт */
+  letter-spacing: 0.5px; /* Небольшой отступ между буквами */
+  padding: 6px 14px;
+  border-radius: 20px; /* Овальная форма */
+  border: 1px solid #14245c; /* Черный контур, как на дизайне */
+  margin-bottom: 20px; /* Отступ снизу до заголовка */
+  width: fit-content; /* Чтобы плашка не растягивалась во всю ширину */
+}

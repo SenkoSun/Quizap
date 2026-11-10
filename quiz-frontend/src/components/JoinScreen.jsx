@@ -18,12 +18,46 @@ function JoinScreen({ onStart }) {
   return (
     <div className="join-container">
       <div className="join-left">
+        <span className="badge-promo">BIG BRAINS BIGGER LAUGHS</span>
+
         <h1>
           Know it all?
           <br />
           Prove it.
         </h1>
-        <p>Укажите своё имя и выберите аватар, чтобы начать игру!</p>
+
+        <p>
+          Round up your favorite people for a fast, funny quiz night. No
+          downloads. No serious faces.
+        </p>
+
+        <div className="emoji-collage-container">
+          {/* Декоративная звездочка в углу */}
+          <span className="emoji-decor-star">✨</span>
+
+          {/* Главные крупные эмодзи */}
+          <div className="emoji-main-character pink-box">😎</div>
+          <div className="emoji-main-character yellow-circle">👽</div>
+          <div className="emoji-main-character green-box">🦊</div>
+
+          {/* Декоративный знак вопроса над ними */}
+          <span className="emoji-decor-question">❓</span>
+
+          {/* Облачко с текстом (спич-бабл), как у розового персонажа */}
+          <div className="emoji-speech-bubble">I knew that. Ish.</div>
+        </div>
+
+        <div className="features-tags">
+          <span className="tag-item">
+            <span className="tag-plus">+</span> 2–8 friends
+          </span>
+          <span className="tag-item">
+            <span className="tag-plus">+</span> 10 quick rounds
+          </span>
+          <span className="tag-item">
+            <span className="tag-plus">+</span> 100% free
+          </span>
+        </div>
       </div>
 
       <div className="join-card">
