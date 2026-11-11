@@ -49,7 +49,7 @@ function JoinScreen({ onStart }) {
             <span className="tag-plus">+</span> 2–8 friends
           </span>
           <span className="tag-item">
-            <span className="tag-plus">+</span> 10 quick rounds
+            <span className="tag-plus">+</span> 5 - 10 quick rounds
           </span>
           <span className="tag-item">
             <span className="tag-plus">+</span> 100% free
