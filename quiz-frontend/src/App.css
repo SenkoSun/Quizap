@@ -11,15 +11,16 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  justify-content: space-between; /* Распределяет шапку, контент и футер по краям экрана */
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .main-content {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-around; /* Распределяет левую и правую части с равными отступами */
-  padding: 40px; /* Увеличили отступы по бокам для лучшего визуального восприятия */
-  width: 100%;
+  justify-content: center;
+  padding: 20px 40px;
   box-sizing: border-box;
 }

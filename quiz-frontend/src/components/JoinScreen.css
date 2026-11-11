@@ -1,10 +1,10 @@
 .join-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   gap: 80px;
   width: 100%;
-  max-width: 1100px;
+  max-width: 1200px;
 }
 
 .join-left {
@@ -12,16 +12,17 @@
   max-width: 500px;
 }
 
-.badge {
-  background-color: #a8e6cf; /* Зеленый бейдж */
-  color: #000;
-  padding: 5px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 900;
+.badge-promo {
   display: inline-block;
+  background-color: #b7f85a;
+  color: #162ea8;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #14245c;
   margin-bottom: 20px;
-  text-transform: uppercase;
 }
 
 .join-left h1 {
@@ -38,11 +39,107 @@
   margin-bottom: 40px;
 }
 
-.benefits {
+.emoji-collage-container {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  height: 280px;
+  margin: 10px 0 30px 0;
   display: flex;
-  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.emoji-main-character {
+  font-size: 110px;
+  line-height: 1;
+  filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.15));
+  animation: float-animation 4s ease-in-out infinite;
+}
+
+.pink-box {
+  --rot: -10deg;
+  margin-right: -15px;
+  z-index: 2;
+}
+
+.yellow-circle {
+  --rot: 5deg;
+  font-size: 130px;
+  z-index: 1;
+  animation-delay: 0.5s;
+}
+
+.green-box {
+  --rot: 15deg;
+  margin-left: -10px;
+  z-index: 2;
+  animation-delay: 1s;
+}
+
+.emoji-speech-bubble {
+  position: absolute;
+  left: -20px;
+  bottom: 20px;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 800;
+  box-shadow: 3px 3px 0px #000000;
+  z-index: 3;
+}
+
+.emoji-decor-star {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  font-size: 28px;
+  transform: rotate(-15deg);
+}
+
+.emoji-decor-question {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 32px;
+  transform: rotate(20deg);
+}
+
+@keyframes float-animation {
+  0%,
+  100% {
+    transform: translateY(0) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-8px) rotate(var(--rot, 0deg));
+  }
+}
+
+.features-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 25px;
+}
+
+.tag-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 6px 14px;
+  border-radius: 20px;
   font-size: 14px;
   font-weight: 700;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tag-plus {
+  color: #caff33;
+  font-weight: 900;
 }
 
 .join-card {
@@ -51,50 +148,22 @@
   border-radius: 20px;
   border: 2px solid black;
   box-shadow: 8px 8px 0 black;
-  width: 420px;
+  width: 550px;
   color: black;
   box-sizing: border-box;
 }
 
 .join-card h2 {
-  margin-top: 0;
+  margin: 0 0 5px 0;
   font-size: 28px;
   font-weight: 900;
-  margin-bottom: 5px;
 }
 
 .subtitle {
   color: #666;
   font-size: 14px;
-  margin-bottom: 20px;
+  margin: 0 0 20px 0;
   font-weight: 700;
-}
-
-/* Табы */
-.tabs {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-
-.tab {
-  flex: 1;
-  padding: 10px;
-  border: 2px solid transparent;
-  border-radius: 10px;
-  font-family: inherit;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.tab.active {
-  background-color: #383bf4;
-  color: white;
-}
-
-.tab.inactive {
-  background-color: #f0f0f0;
-  color: #666;
 }
 
 .input-label {
@@ -102,8 +171,9 @@
   font-size: 11px;
   font-weight: 900;
   margin-bottom: 8px;
-  letter-spacing: 1px;
-  color: #333;
+  letter-spacing: 0.5px;
+  color: #1e293b;
+  text-transform: uppercase;
 }
 
 .input-wrapper {
@@ -163,6 +233,38 @@
   transform: scale(1.1);
 }
 
+.code-input-group {
+  margin-bottom: 20px;
+}
+
+.code-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 16px;
+  border: 2px solid #2b3467;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 18px;
+  font-weight: 800;
+  color: #1e293b;
+  text-align: center;
+  letter-spacing: 1.5px;
+  outline: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.code-input::placeholder {
+  color: #7c85a2;
+  letter-spacing: 1px;
+}
+
+.code-input:focus {
+  border-color: #1e40ef;
+  box-shadow: 0 0 0 3px rgba(30, 64, 239, 0.15);
+}
+
 .join-btn {
   width: 100%;
   padding: 15px;
@@ -179,9 +281,9 @@
   font-family: inherit;
 }
 
-.join-btn:active {
+.join-btn:active:not(:disabled) {
   transform: translate(4px, 4px);
-  box-shadow: 0px 0px 0 black;
+  box-shadow: none;
 }
 
 .join-btn:disabled {
@@ -190,156 +292,55 @@
   border-color: #999;
   box-shadow: 4px 4px 0 #999;
   cursor: not-allowed;
-  transform: none;
 }
 
-.bottom-hint {
-  text-align: center;
-  font-size: 13px;
-  margin-top: 20px;
-  font-weight: 700;
-  color: #666;
-}
-
-.bottom-hint a {
-  color: #383bf4;
-  text-decoration: none;
-}
-
-.features-tags {
+.card-footer {
   display: flex;
-  flex-wrap: wrap; /* Чтобы на мобилках теги красиво переносились */
-  gap: 12px; /* Расстояние между плашками */
-  margin-top: 25px; /* Отступ сверху от главного текста */
-}
-
-.tag-item {
-  display: inline-flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 6px;
-  background-color: rgba(255, 255, 255, 0.15); /* Полупрозрачный белый фон */
-  padding: 6px 14px;
-  border-radius: 20px; /* Овальная форма */
-  font-size: 14px;
-  font-weight: 700; /* Жирный текст, как на дизайне */
-  color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая незаметная рамка для объема */
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
 }
 
-.tag-plus {
-  color: #caff33; /* Ярко-салатовый цвет для плюса, как акцент на макете */
-  font-weight: 900;
-}
-
-/* Контейнер для всего коллажа */
-.emoji-collage-container {
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-  height: 280px; /* Увеличили с 220px до 280px, чтобы дать место сверху */
-  margin: 10px 0 30px 0; /* Уменьшили верхний отступ и добавили нижний */
+.card-footer-text {
   display: flex;
-  align-items: center; /* Заменили flex-end на center, чтобы поднять персонажей */
-  justify-content: center;
+  flex-direction: column;
+  gap: 2px;
 }
 
-/* Общие стили для главных эмодзи-персонажей */
-.emoji-main-character {
-  font-size: 110px; /* Делаем эмодзи очень крупными */
-  line-height: 1;
-  filter: drop-shadow(4px 6px 0px rgba(0, 0, 0, 0.15)); /* Объемная тень */
-  transition: transform 0.3s ease;
-  animation: float-animation 4s ease-in-out infinite;
-}
-
-/* Розовый квадрат (Левый) */
-.pink-box {
-  transform: rotate(-10deg);
-  margin-right: -15px;
-  z-index: 2;
-  animation-delay: 0s;
-}
-
-/* Желтый круг (Центральный) */
-.yellow-circle {
-  font-size: 100px; /* Центр сделаем чуть больше */
-  transform: rotate(5deg);
-  z-index: 1;
-  animation-delay: 0.5s;
-}
-
-/* Зеленый квадрат (Правый) */
-.green-box {
-  transform: rotate(15deg);
-  margin-left: -10px;
-  z-index: 2;
-  animation-delay: 1s;
-}
-
-/* Текстовое облачко (спич-бабл) слева внизу */
-.emoji-speech-bubble {
-  position: absolute;
-  left: 10px;
-  bottom: 20px;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 6px 14px;
-  border-radius: 20px;
+.footer-title {
+  margin: 0;
   font-size: 13px;
   font-weight: 800;
-  box-shadow: 3px 3px 0px #000000; /* Четкая тень в стиле Neobrutalism */
-  z-index: 3;
+  color: #1e293b;
 }
 
-/* Декоративные элементы по краям */
-.emoji-decor-star {
-  position: absolute;
-  top: 10px;
-  left: 0;
-  font-size: 28px;
-  transform: rotate(-15deg);
+.footer-subtitle {
+  margin: 0;
+  font-size: 12px;
+  color: #64748b;
 }
 
-.emoji-decor-question {
-  position: absolute;
-  top: 0px;
-  right: 40px;
-  font-size: 32px;
-  transform: rotate(20deg);
+.footer-switch-btn {
+  background: none;
+  border: none;
+  padding: 4px 0;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  color: #1e40ef;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.1s ease;
 }
 
-/* Эффект легкого покачивания в воздухе */
-@keyframes float-animation {
-  0%,
-  100% {
-    transform: translateY(0) rotate(var(--rot, 0deg));
-  }
-  50% {
-    transform: translateY(-8px) rotate(var(--rot, 0deg));
-  }
+.footer-switch-btn:hover {
+  opacity: 0.75;
+  text-decoration: underline;
 }
 
-/* Применяем анимацию покачивания с сохранением исходного наклона */
-.pink-box {
-  --rot: -10deg;
-}
-.yellow-circle {
-  --rot: 5deg;
-}
-.green-box {
-  --rot: 15deg;
-}
-
-.badge-promo {
-  display: inline-block;
-  background-color: #b7f85a; /* Яркий салатовый цвет */
-  color: #162ea8; /* Черный текст */
-  font-size: 11px;
-  font-weight: 900; /* Максимально жирный шрифт */
-  letter-spacing: 0.5px; /* Небольшой отступ между буквами */
-  padding: 6px 14px;
-  border-radius: 20px; /* Овальная форма */
-  border: 1px solid #14245c; /* Черный контур, как на дизайне */
-  margin-bottom: 20px; /* Отступ снизу до заголовка */
-  width: fit-content; /* Чтобы плашка не растягивалась во всю ширину */
+.footer-switch-btn:active {
+  transform: scale(0.97);
 }

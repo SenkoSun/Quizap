@@ -6,12 +6,13 @@ function JoinScreen({ onStart }) {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("😎");
   const [isLoading, setIsLoading] = useState(false);
+  const [roomCode, setRoomCode] = useState("");
 
   function handleJoin() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      onStart(name, avatar);
+      onStart(name, avatar, roomCode);
     }, 1000);
   }
 
@@ -32,18 +33,14 @@ function JoinScreen({ onStart }) {
         </p>
 
         <div className="emoji-collage-container">
-          {/* Декоративная звездочка в углу */}
           <span className="emoji-decor-star">✨</span>
 
-          {/* Главные крупные эмодзи */}
           <div className="emoji-main-character pink-box">😎</div>
           <div className="emoji-main-character yellow-circle">👽</div>
           <div className="emoji-main-character green-box">🦊</div>
 
-          {/* Декоративный знак вопроса над ними */}
           <span className="emoji-decor-question">❓</span>
 
-          {/* Облачко с текстом (спич-бабл), как у розового персонажа */}
           <div className="emoji-speech-bubble">I knew that. Ish.</div>
         </div>
 
@@ -61,10 +58,10 @@ function JoinScreen({ onStart }) {
       </div>
 
       <div className="join-card">
-        <h2>Создать игрока</h2>
-        <p className="subtitle">Введите данные для входа</p>
+        <h2>Your quiz crew awaits.</h2>
+        <p className="subtitle">Pick a avatar, grab a name, and get in here.</p>
 
-        <label className="input-label">ИМЯ ИГРОКА</label>
+        <label className="input-label">WHAT SHOULD WE CALL YOU?</label>
         <div className="input-wrapper">
           <input
             type="text"
@@ -76,13 +73,11 @@ function JoinScreen({ onStart }) {
           <span className="char-count">{name.length} / 10</span>
         </div>
 
-        <label className="input-label">ВЫБЕРИТЕ АВАТАР</label>
         <div className="avatar-grid">
           {avatars.map((emoji, index) => (
             <button
               key={index}
               type="button"
-              /* В вашем CSS класс называется .selected, а не .active */
               className={`avatar-btn ${avatar === emoji ? "selected" : ""}`}
               onClick={() => setAvatar(emoji)}
             >
@@ -91,14 +86,37 @@ function JoinScreen({ onStart }) {
           ))}
         </div>
 
+        <div className="code-input-group">
+          <label className="input-label">GOT A ROOM CODE?</label>
+          <input
+            type="text"
+            className="code-input"
+            placeholder="ENTER CODE"
+            value={roomCode}
+            onChange={(e) => setRoomCode(e.target.value.toUpperCase())}
+            maxLength={6}
+          />
+        </div>
+
         <button
           type="button"
           className="join-btn"
           onClick={handleJoin}
-          disabled={name.trim() === "" || isLoading}
+          disabled={name.trim() === "" || roomCode.trim() === "" || isLoading}
         >
-          {isLoading ? "Входим..." : "Let's play! ->"}
+          {isLoading ? "Loading..." : "Let's play! →"}
         </button>
+
+        <div className="card-footer">
+          <div className="card-footer-text">
+            <p className="footer-title">Starting the party?</p>
+            <p className="footer-subtitle">Your room, your rules.</p>
+          </div>
+
+          <button type="button" className="footer-switch-btn">
+            Create room ↗
+          </button>
+        </div>
       </div>
     </div>
   );
