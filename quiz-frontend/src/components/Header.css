@@ -30,11 +30,47 @@
 }
 
 .icon-btn {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(32, 60, 208, 0.6);
   border: none;
-  border-radius: 50%;
+  border-radius: 12px;
   width: 35px;
   height: 35px;
   color: white;
   cursor: pointer;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+}
+
+.codeGame {
+  background: rgba(32, 60, 208, 0.6);
+  font-weight: 800;
+  font-family: "Nunito", sans-serif;
+  white-space: nowrap;
+  border: none;
+  border-radius: 12px;
+  width: 120px;
+  height: 35px;
+  color: #f9ff43;
+  cursor: pointer;
+  transition:
+    transform 0.1s,
+    box-shadow 0.1s;
+}
+
+.codeGame:active {
+  transform: translate(2px, 2px);
+  box-shadow: none;
+}
+
+.icon-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: none;
+}
+
+.codeGame-icon {
+  display: inline-flex;
+  color: #ffffff;
+  font-size: 16px;
+  transform: translateY(2px);
 }

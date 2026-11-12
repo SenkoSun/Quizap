@@ -9,6 +9,7 @@ function App() {
   const [currentScreen, setCurrentScreen] = useState("join");
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("😎");
+  const [codeGame, setCodeGame] = useState("");
 
   const screens = {
     join: (
@@ -32,7 +33,7 @@ function App() {
 
   return (
     <div className="app-layout">
-      <Header />
+      <Header codeGame={codeGame} />
       <main className="main-content">{screens[currentScreen]}</main>
       <Footer />
     </div>
