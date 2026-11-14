@@ -76,6 +76,17 @@ function GameScreen({ playerName, playerAvatar, onRestart }) {
             );
           })}
         </div>
+
+        <div className="score-badge">
+          <img
+            src="/favicon.png"
+            className="header-icon"
+            alt="Logo"
+            style={{ width: "18px", height: "18px", objectFit: "contain" }}
+          />
+
+          <span>1,000 pts</span>
+        </div>
       </div>
 
       <div className="game-container">
