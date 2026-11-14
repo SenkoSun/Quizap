@@ -16,6 +16,9 @@ function GameScreen({ playerName, playerAvatar, onRestart }) {
   const colors = ["red", "yellow", "green", "blue"];
 
   useEffect(() => {
+    if (currentIndex >= questions.length) {
+      return;
+    }
     if (timeLeft <= 0) {
       handleAnswerClick(-1);
       return;
@@ -24,7 +27,6 @@ function GameScreen({ playerName, playerAvatar, onRestart }) {
       setTimeLeft((prev) => prev - 1);
     }, 1000);
 
-    // Очистка таймера (ОЧЕНЬ ВАЖНО!)
     return () => clearTimeout(timerId);
   }, [timeLeft]); // Зависимость от timeLeft
 
@@ -52,42 +54,72 @@ function GameScreen({ playerName, playerAvatar, onRestart }) {
   }
 
   return (
-    <div className="game-container">
-      <h2>Игрок: {playerName}</h2>
-      <h2>{playerAvatar}</h2>
-      <div className="question-header">
-        <div className={`timer-circle ${timeLeft <= 5 ? "danger" : ""}`}>
-          {timeLeft}
+    <div className="game-screen">
+      <div className="game-container">
+        <div className="card-top-row">
+          <span className="topic-badge">{currentQuestion.topic}</span>
+
+          <span className="topic-subtitle">
+            {currentQuestion.topic} · Single choice
+          </span>
         </div>
-        <span className="topic-badge">{currentQuestion.topic}</span>
-        <h2 className="question-text">{currentQuestion.question}</h2>
+
+        <div className="card-middle-row">
+          <h2 className="question-text">{currentQuestion.question}</h2>
+
+          <div className="timer-section">
+            <div className={`timer-circle ${timeLeft <= 5 ? "danger" : ""}`}>
+              {timeLeft}
+              <span className="timer-label">SECONDS</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="progress-bar-bg">
+          <div
+            style={{ width: `${((15 - timeLeft + 1) / 15) * 100}%` }}
+            className={`progress-bar-fill ${timeLeft <= 5 ? "danger" : ""}`}
+          ></div>
+        </div>
       </div>
-      <div className="options-grid">
-        {currentQuestion.options.map((optionText, index) => {
-          // 1. Вычисляем статус для текущей кнопки
-          let status = "";
 
-          if (selectedAnswer !== null) {
-            if (index === currentQuestion.correctAnswer) {
-              status = "correct"; // Показываем правильный всегда, когда ответ дан
-            } else if (index === selectedAnswer) {
-              status = "wrong"; // Если игрок нажал сюда, но это не correctAnswer
+      <div className="question-container">
+        <div className="options-grid">
+          {currentQuestion.options.map((optionText, index) => {
+            // 1. Вычисляем статус для текущей кнопки
+            let status = "";
+
+            if (selectedAnswer !== null) {
+              if (index === currentQuestion.correctAnswer) {
+                status = "correct"; // Показываем правильный всегда, когда ответ дан
+              } else {
+                status = "dimmed"; // Если игрок нажал сюда, но это не correctAnswer
+              }
             }
-          }
 
-          // 2. Возвращаем компонент и передаем в него вычисленный status
-          return (
-            <OptionButton
-              key={index}
-              text={optionText}
-              letter={["A", "B", "C", "D"][index]}
-              onClick={() => handleAnswerClick(index)}
-              color={colors[index]}
-              status={status} // Передаем проп status в компонент кнопки
-              disabled={selectedAnswer !== null}
-            />
-          );
-        })}
+            // 2. Возвращаем компонент и передаем в него вычисленный status
+            return (
+              <OptionButton
+                key={index}
+                text={optionText}
+                letter={["A", "B", "C", "D"][index]}
+                onClick={() => handleAnswerClick(index)}
+                color={colors[index]}
+                status={status} // Передаем проп status в компонент кнопки
+                disabled={selectedAnswer !== null}
+                isSelected={selectedAnswer === index}
+              />
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="game-footer">
+        <div className="player-badge">
+          <span>{playerAvatar}</span>
+          <span>Игрок: {playerName}</span>
+        </div>
+        <span>A, B, C, D to answer</span>
       </div>
     </div>
   );
