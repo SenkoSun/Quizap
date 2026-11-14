@@ -55,6 +55,29 @@ function GameScreen({ playerName, playerAvatar, onRestart }) {
 
   return (
     <div className="game-screen">
+      <div className="quiz-progress-row">
+        <span className="question-counter">
+          {" "}
+          QUESTION {currentIndex + 1} / {questions.length}
+        </span>
+        <div className="topic-progress-bar">
+          {questions.map((_, index) => {
+            let clr = "progress-segment";
+            if (index < currentIndex) {
+              clr = "progress-segment completed";
+            } else if (index === currentIndex) {
+              clr = "progress-segment active";
+            }
+
+            return (
+              <div key={index} className={clr}>
+                {" "}
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
       <div className="game-container">
         <div className="card-top-row">
           <span className="topic-badge">{currentQuestion.topic}</span>

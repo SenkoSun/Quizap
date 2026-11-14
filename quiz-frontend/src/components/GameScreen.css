@@ -154,3 +154,57 @@
   gap: 10px;
   font-weight: 700;
 }
+
+/* Строка прогресса прямо над карточкой вопроса */
+.quiz-progress-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 1044px;
+  max-width: 100%;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.question-counter {
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+
+/* Контейнер для сегментов */
+.topic-progress-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-grow: 1;
+}
+
+/* Один сегмент шкалы */
+.progress-segment {
+  height: 8px;
+  flex: 1;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.25);
+  transition: background-color 0.3s ease;
+}
+
+/* Пройденный вопрос */
+.progress-segment.completed {
+  background-color: #b7f85a;
+}
+
+/* Текущий активный вопрос */
+.progress-segment.active {
+  background-color: #f9ff43;
+}
+
+/* Очки справа */
+.score-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
