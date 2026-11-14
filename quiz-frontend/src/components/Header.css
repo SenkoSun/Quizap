@@ -12,6 +12,12 @@
   font-weight: 900;
   font-size: 24px;
   color: #f9f871; /* Желтый */
+  text-decoration: none; /* Убирает подчеркивание ссылки */
+  cursor: pointer;
+}
+
+.logo:visited {
+  color: #f9f871; /* Не дает браузеру красить ссылку в фиолетовый */
 }
 
 .logo span {

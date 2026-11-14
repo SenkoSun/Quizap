@@ -1,4 +1,5 @@
 import "./Header.css";
+// import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function Header({ codeGame }) {
@@ -25,7 +26,7 @@ function Header({ codeGame }) {
 
   return (
     <header className="header">
-      <div className="logo">
+      <a href="/" className="logo">
         <img
           src="/favicon.png"
           className="header-icon"
@@ -34,7 +35,7 @@ function Header({ codeGame }) {
         />
         {title}
         <span>{description}</span>
-      </div>
+      </a>
 
       <div className="header-right">
         <span>{rightText}</span>
