@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./JoinScreen.css";
 
 function JoinScreen({ onStart }) {
-  const avatars = ["😎", "👽", "🦊", "🐸", "🐼"];
+  const avatars = ["😎", "👽", "🦊", "🐸", "🐼", "🐙"];
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("😎");
   const [isLoading, setIsLoading] = useState(false);
@@ -35,9 +35,9 @@ function JoinScreen({ onStart }) {
         <div className="emoji-collage-container">
           <span className="emoji-decor-star">✨</span>
 
-          <div className="emoji-main-character pink-box">😎</div>
-          <div className="emoji-main-character yellow-circle">👽</div>
-          <div className="emoji-main-character green-box">🦊</div>
+          <div className="emoji-main-character pink-box">🐙</div>
+          <div className="emoji-main-character yellow-circle">😎</div>
+          <div className="emoji-main-character green-box">👽</div>
 
           <span className="emoji-decor-question">❓</span>
 

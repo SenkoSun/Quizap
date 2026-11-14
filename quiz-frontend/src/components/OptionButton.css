@@ -1,35 +1,106 @@
 .option-btn {
-  width: 100%;
-  padding: 20px;
-  font-size: 20px;
-  font-weight: bold;
-  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 511px;
+  height: 105px;
+  padding: 0 28px;
+  border-radius: 18px;
+  border: 2px solid #0f172a;
+  box-shadow: 4px 4px 0 #0f172a;
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f172a;
+  cursor: pointer;
+  transition:
+    transform 0.1s ease,
+    box-shadow 0.1s ease,
+    opacity 0.2s ease;
   text-align: left;
-  border-radius: 10px;
-  transition: transform 0.1s;
-}
-.option-btn:active {
-  transform: scale(0.98);
-}
-.red {
-  background-color: #ff7eb3;
-}
-.yellow {
-  background-color: #f9f871;
-}
-.green {
-  background-color: #a8e6cf;
-}
-.blue {
-  background-color: #a3c4f3;
+  box-sizing: border-box;
 }
 
-.correct {
-  border: 3px solid black;
-  opacity: 1 !important;
-  color: #000000 !important;
+.option-btn:hover:not(:disabled) {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 #000000;
 }
 
-.option-btn:disabled:not(.correct) {
-  opacity: 0.35;
+.option-btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 #000000;
+}
+
+.option-btn:disabled {
+  cursor: default;
+}
+
+/* Базовые цвета кнопок */
+.option-btn.red {
+  background-color: #ff8fad;
+}
+
+.option-btn.yellow {
+  background-color: #f9ff43;
+}
+
+.option-btn.green {
+  background-color: #b7f85a;
+}
+
+.option-btn.blue {
+  background-color: #bbc8ff;
+}
+
+/* Состояния после ответа */
+.option-btn.correct {
+  box-shadow:
+    4px 4px 0 #000000,
+    0 0 20px 4px rgba(255, 255, 255, 0.9);
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+.option-btn.dimmed {
+  opacity: 0.45;
+  filter: grayscale(30%);
+}
+
+.option-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.option-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border: 2px solid #000000;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 800;
+  color: #000000;
+}
+
+.option-text {
+  line-height: 1.2;
+}
+
+/* Правая часть (кружок с галочкой при выборе) */
+.option-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  background-color: #0f172a;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
 }
