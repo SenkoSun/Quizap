@@ -6,7 +6,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 function App() {
-  const [currentScreen, setCurrentScreen] = useState("game");
+  const [currentScreen, setCurrentScreen] = useState("join");
   const [playerName, setPlayerName] = useState("");
   const [playerAvatar, setPlayerAvatar] = useState("😎");
   const [codeGame, setCodeGame] = useState("ABCDEF");

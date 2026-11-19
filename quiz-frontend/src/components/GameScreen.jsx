@@ -4,6 +4,7 @@ import questions from "../data/questions";
 
 import "./GameScreen.css";
 import OptionButton from "./OptionButton";
+import PlayersSidebar from "./PlayersSidebar";
 import ResultScreen from "./ResultScreen";
 
 function GameScreen({ playerName, playerAvatar, onRestart }) {
@@ -54,106 +55,113 @@ function GameScreen({ playerName, playerAvatar, onRestart }) {
   }
 
   return (
-    <div className="game-screen">
-      <div className="quiz-progress-row">
-        <span className="question-counter">
-          {" "}
-          QUESTION {currentIndex + 1} / {questions.length}
-        </span>
-        <div className="topic-progress-bar">
-          {questions.map((_, index) => {
-            let clr = "progress-segment";
-            if (index < currentIndex) {
-              clr = "progress-segment completed";
-            } else if (index === currentIndex) {
-              clr = "progress-segment active";
-            }
-
-            return (
-              <div key={index} className={clr}>
-                {" "}
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="score-badge">
-          <img
-            src="/favicon.png"
-            className="header-icon"
-            alt="Logo"
-            style={{ width: "18px", height: "18px", objectFit: "contain" }}
-          />
-
-          <span>1,000 pts</span>
-        </div>
-      </div>
-
-      <div className="game-container">
-        <div className="card-top-row">
-          <span className="topic-badge">{currentQuestion.topic}</span>
-
-          <span className="topic-subtitle">
-            {currentQuestion.topic} · Single choice
+    <div className="game-layout">
+      <PlayersSidebar
+        playerName={playerName}
+        playerAvatar={playerAvatar}
+        hasAnswered={selectedAnswer !== null}
+      />
+      <div className="game-screen">
+        <div className="quiz-progress-row">
+          <span className="question-counter">
+            {" "}
+            QUESTION {currentIndex + 1} / {questions.length}
           </span>
-        </div>
+          <div className="topic-progress-bar">
+            {questions.map((_, index) => {
+              let clr = "progress-segment";
+              if (index < currentIndex) {
+                clr = "progress-segment completed";
+              } else if (index === currentIndex) {
+                clr = "progress-segment active";
+              }
 
-        <div className="card-middle-row">
-          <h2 className="question-text">{currentQuestion.question}</h2>
+              return (
+                <div key={index} className={clr}>
+                  {" "}
+                </div>
+              );
+            })}
+          </div>
 
-          <div className="timer-section">
-            <div className={`timer-circle ${timeLeft <= 5 ? "danger" : ""}`}>
-              {timeLeft}
-              <span className="timer-label">SECONDS</span>
-            </div>
+          <div className="score-badge">
+            <img
+              src="/favicon.png"
+              className="header-icon"
+              alt="Logo"
+              style={{ width: "18px", height: "18px", objectFit: "contain" }}
+            />
+
+            <span>1,000 pts</span>
           </div>
         </div>
 
-        <div className="progress-bar-bg">
-          <div
-            style={{ width: `${((15 - timeLeft + 1) / 15) * 100}%` }}
-            className={`progress-bar-fill ${timeLeft <= 5 ? "danger" : ""}`}
-          ></div>
+        <div className="game-container">
+          <div className="card-top-row">
+            <span className="topic-badge">{currentQuestion.topic}</span>
+
+            <span className="topic-subtitle">
+              {currentQuestion.topic} · Single choice
+            </span>
+          </div>
+
+          <div className="card-middle-row">
+            <h2 className="question-text">{currentQuestion.question}</h2>
+
+            <div className="timer-section">
+              <div className={`timer-circle ${timeLeft <= 5 ? "danger" : ""}`}>
+                {timeLeft}
+                <span className="timer-label">SECONDS</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="progress-bar-bg">
+            <div
+              style={{ width: `${((15 - timeLeft + 1) / 15) * 100}%` }}
+              className={`progress-bar-fill ${timeLeft <= 5 ? "danger" : ""}`}
+            ></div>
+          </div>
         </div>
-      </div>
 
-      <div className="question-container">
-        <div className="options-grid">
-          {currentQuestion.options.map((optionText, index) => {
-            // 1. Вычисляем статус для текущей кнопки
-            let status = "";
+        <div className="question-container">
+          <div className="options-grid">
+            {currentQuestion.options.map((optionText, index) => {
+              // 1. Вычисляем статус для текущей кнопки
+              let status = "";
 
-            if (selectedAnswer !== null) {
-              if (index === currentQuestion.correctAnswer) {
-                status = "correct"; // Показываем правильный всегда, когда ответ дан
-              } else {
-                status = "dimmed"; // Если игрок нажал сюда, но это не correctAnswer
+              if (selectedAnswer !== null) {
+                if (index === currentQuestion.correctAnswer) {
+                  status = "correct"; // Показываем правильный всегда, когда ответ дан
+                } else {
+                  status = "dimmed"; // Если игрок нажал сюда, но это не correctAnswer
+                }
               }
-            }
 
-            // 2. Возвращаем компонент и передаем в него вычисленный status
-            return (
-              <OptionButton
-                key={index}
-                text={optionText}
-                letter={["A", "B", "C", "D"][index]}
-                onClick={() => handleAnswerClick(index)}
-                color={colors[index]}
-                status={status} // Передаем проп status в компонент кнопки
-                disabled={selectedAnswer !== null}
-                isSelected={selectedAnswer === index}
-              />
-            );
-          })}
+              // 2. Возвращаем компонент и передаем в него вычисленный status
+              return (
+                <OptionButton
+                  key={index}
+                  text={optionText}
+                  letter={["A", "B", "C", "D"][index]}
+                  onClick={() => handleAnswerClick(index)}
+                  color={colors[index]}
+                  status={status} // Передаем проп status в компонент кнопки
+                  disabled={selectedAnswer !== null}
+                  isSelected={selectedAnswer === index}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
 
-      <div className="game-footer">
-        <div className="player-badge">
-          <span>{playerAvatar}</span>
-          <span>Игрок: {playerName}</span>
+        <div className="game-footer">
+          <div className="player-badge">
+            <span>{playerAvatar}</span>
+            <span>Игрок: {playerName}</span>
+          </div>
+          <span>A, B, C, D to answer</span>
         </div>
-        <span>A, B, C, D to answer</span>
       </div>
     </div>
   );

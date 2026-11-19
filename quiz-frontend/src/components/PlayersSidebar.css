@@ -1,0 +1,136 @@
+.players-sidebar {
+  width: 240px;
+  flex-shrink: 0;
+  background: #fffef5;
+  border: 2px solid #14245c;
+  border-radius: 24px;
+  box-shadow: 5px 5px 0 #14245c;
+  padding: 20px 18px;
+  color: #14245c;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* Шапка */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sidebar-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.crew-badge {
+  background: #ffffff;
+  border: 2px solid #14245c;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+/* Список игроков с ровным шагом без пустых дыр */
+.leaderboard {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Строка отдельного игрока */
+.leaderboard__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  transition: background-color 0.2s ease;
+}
+
+/* Выделение текущего игрока */
+.leaderboard__item--current {
+  background-color: #eef2ff;
+  border: 1.5px solid #c7d2fe;
+}
+
+/* Крупный аватар без фона и рамки */
+.leaderboard__avatar {
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+  border-radius: 11px;
+  border: 1.5px solid #14245c;
+  background-color: #bbc8ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* Столбик с именем и очками */
+.leaderboard__info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+
+.leaderboard__name {
+  font-size: 13px;
+  font-weight: 800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.leaderboard__points {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+/* Статус ответа справа */
+.leaderboard__status {
+  font-size: 13px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.leaderboard__status.is-answered {
+  color: #2563eb;
+}
+
+.leaderboard__status.is-waiting {
+  color: #94a3b8;
+  letter-spacing: 1px;
+}
+
+/* Подвал карточки — прижат к самому низу */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1.5px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #64748b;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  flex-shrink: 0;
+}
